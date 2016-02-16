@@ -1,4 +1,4 @@
-# Validated YAML File as a Configuration Interface
+# Validated YAML Files as a Configuration Interface
 
 To run:
 ```
