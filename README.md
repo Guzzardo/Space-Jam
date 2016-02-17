@@ -1,4 +1,4 @@
-# Validated YAML Files as a Configuration Interface
+# Extending Google Cloud Platform Configurations
 
 To run:
 ```
