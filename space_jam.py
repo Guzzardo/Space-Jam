@@ -3,24 +3,9 @@ from google.appengine.api import validation
 from google.appengine.api import yaml_object
 from StringIO import StringIO
 
-SAMPLE_YAML = """
-name: The Toon Squad
-player_count: 5
-players:
-- name: The Tasmanian Devil
-  position: C
-- name: Lola Bunny
-  position: SF
-- name: Daffy Duck
-  position: PF
-- name: Bugs Bunny
-  position: PG
-- name: Michael Jordan
-  position: SG
-inception_date: 11/15/96
-"""
 
 DATE_FORMATS = ["%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%m-%d-%y"]
+
 
 class DateTimeValidator(validation.Validator):
 
@@ -46,7 +31,9 @@ class DateTimeValidator(validation.Validator):
         """
         return value.strftime(DATE_FORMATS[0])
 
+
 POSITIONS = ['PG', 'SG', 'PF', 'SF', 'C']
+
 
 class Player(validation.Validated):
     ATTRIBUTES = {
@@ -54,8 +41,10 @@ class Player(validation.Validated):
         'position': validation.Options(*POSITIONS),
     }
 
+
 class InvalidRoster(validation.ValidationError):
     pass
+
 
 class Roster(validation.Validated):
     ATTRIBUTES = {
@@ -74,6 +63,7 @@ class Roster(validation.Validated):
         if not self.has_every_position_filled():
             raise InvalidRoster('Every position must be filled.')
 
+
 def build_objects(file_content, validated_class):
     """
     file_content - YAML file content
@@ -84,6 +74,7 @@ def build_objects(file_content, validated_class):
     if not built_tuple:
         return None
     return built_tuple[0]
+
 
 def announce_squad(file_content):
     try:
@@ -96,5 +87,23 @@ def announce_squad(file_content):
         for player in roster.players:
             print 'At {}, {}!'.format(player.position, player.name)
 
+SAMPLE_YAML = """
+    name: The Toon Squad
+    player_count: 5
+    players:
+    - name: The Tasmanian Devil
+      position: C
+    - name: Lola Bunny
+      position: SF
+    - name: Daffy Duck
+      position: PF
+    - name: Bugs Bunny
+      position: PG
+    - name: Michael Jordan
+      position: SG
+    inception_date: 11/15/96
+"""            
+
+    
 if __name__ == "__main__":
     announce_squad(SAMPLE_YAML)
