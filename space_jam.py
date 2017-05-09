@@ -88,20 +88,20 @@ def announce_squad(file_content):
             print 'At {}, {}!'.format(player.position, player.name)
 
 SAMPLE_YAML = """
-    name: The Toon Squad
-    player_count: 5
-    players:
-    - name: The Tasmanian Devil
-      position: C
-    - name: Lola Bunny
-      position: SF
-    - name: Daffy Duck
-      position: PF
-    - name: Bugs Bunny
-      position: PG
-    - name: Michael Jordan
-      position: SG
-    inception_date: 11/15/96
+name: The Toon Squad
+player_count: 5
+players:
+- name: The Tasmanian Devil
+  position: C
+- name: Lola Bunny
+  position: SF
+- name: Daffy Duck
+  position: PF
+- name: Bugs Bunny
+  position: PG
+- name: Michael Jordan
+  position: SG
+inception_date: 11/15/96
 """            
 
     
