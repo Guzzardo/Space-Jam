@@ -87,6 +87,7 @@ def announce_squad(file_content):
         for player in roster.players:
             print 'At {}, {}!'.format(player.position, player.name)
 
+            
 SAMPLE_YAML = """
 name: The Toon Squad
 player_count: 5
